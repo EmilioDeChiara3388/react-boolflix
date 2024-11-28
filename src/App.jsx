@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useState } from 'react';
 import GlobalContext, { GlobalProvider } from './components/GlobalContext';
 import SearchBar from './components/SearchBar';
 
@@ -19,7 +19,11 @@ const AppContent = () => {
                 <div >
                   <li className='border border-danger'><p className="m-2"> {movie.title || movie.name} </p>
                     <p className="m-2"> {movie.original_title || movie.original_name} </p>
-                    <p className="m-2"> {movie.original_language} </p>
+                    {["it", "es", "fr", "en"].includes(movie.original_language) ? (
+                      <img src={`../flags/${movie.original_language}.jpg`} alt="" />
+                    ) : (
+                      <p className="m-2"> {movie.original_language} </p>
+                    )}
                     <p className="m-2"> {movie.vote_average} </p>
                   </li>
                 </div>
