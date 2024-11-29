@@ -1,24 +1,7 @@
 import { GlobalContextProvider, useGlobalContext } from "./contexts/GlobalContext"
-
+import SearchBar from "./components/SearchBar";
 
 function App() {
-
-  function SearchBar() {
-    const { searchMovies, setSearchMovies, handleSearch } = useGlobalContext()
-    return (
-
-      <form className='my-3' onSubmit={handleSearch}>
-        <input type="search"
-          name='searchForm'
-          id='searchForm'
-          placeholder='Inserisci Film'
-          value={searchMovies}
-          onChange={e => setSearchMovies(e.target.value)} />
-        <button type='submit'>Cerca</button>
-      </form >
-
-    )
-  }
 
   function ListOfResults() {
     const { movies } = useGlobalContext()
