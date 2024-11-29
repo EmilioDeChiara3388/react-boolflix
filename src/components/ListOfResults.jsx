@@ -15,6 +15,7 @@ export default function ListOfResults() {
                         <div className="col" key={movie.id}>
                             <ul>
                                 <div >
+                                    <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt="" />
                                     <li className='border border-danger'><p className="m-2"> {movie.title || movie.name} </p>
                                         <p className="m-2"> {movie.original_title || movie.original_name} </p>
                                         <Flag
