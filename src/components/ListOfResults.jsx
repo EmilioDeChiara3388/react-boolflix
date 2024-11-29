@@ -1,6 +1,7 @@
 import { useGlobalContext } from "../contexts/GlobalContext";
 import Flag from "react-world-flags";
 import FlagForLanguage from "./FlagForLanguage";
+import VoteInStars from "./VoteInStars";
 
 export default function ListOfResults() {
 
@@ -22,7 +23,7 @@ export default function ListOfResults() {
                                             code={FlagForLanguage(movie.original_language)}
                                             style={{ width: "30px", height: "20px" }}
                                         />
-                                        <p className="m-2"> {movie.vote_average} </p>
+                                        <VoteInStars movieId={movie.id} />
                                     </li>
                                 </div>
                             </ul>
