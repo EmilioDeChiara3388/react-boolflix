@@ -10,28 +10,34 @@ export default function ListOfResults() {
     return (
         <>
             <div className="container">
-                <h2>Risultati Ricerca</h2>
-                {movies.length > 0 ? (
-                    movies.filter(movie => movie.media_type !== "person").map((movie) => (
-                        <div className="col" key={movie.id}>
-                            <ul>
-                                <div >
-                                    <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt="" />
-                                    <li className='border border-danger'><p className="m-2"> {movie.title || movie.name} </p>
+                <div className="row">
+                    <h2 className="mb-4">Risultati Ricerca</h2>
+                    {movies.length > 0 ? (
+                        movies.filter(movie => movie.media_type !== "person").map((movie) => (
+                            <div className="col-4 mb-4" key={movie.id}>
+
+                                <div className="card p-3 text-light" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300${movie.poster_path}` }} >
+                                    <div className="details">
+                                        <p className="m-2"> {movie.title || movie.name} </p>
                                         <p className="m-2"> {movie.original_title || movie.original_name} </p>
-                                        <Flag
-                                            code={FlagForLanguage(movie.original_language)}
-                                            style={{ width: "30px", height: "20px" }}
-                                        />
-                                        <VoteInStars movieId={movie.id} />
-                                    </li>
+                                        <div className="p-2">
+                                            <Flag
+                                                code={FlagForLanguage(movie.original_language)}
+                                                style={{ width: "30px", height: "20px" }}
+                                            />
+                                        </div>
+                                        <div className="p-2">
+                                            <VoteInStars movieId={movie.id} />
+                                        </div>
+                                    </div>
                                 </div>
-                            </ul>
-                        </div>
-                    ))
-                ) : (
-                    <p>Nessun risultato</p>
-                )}
+
+                            </div>
+                        ))
+                    ) : (
+                        <p>Nessun risultato</p>
+                    )}
+                </div>
             </div>
         </>
 

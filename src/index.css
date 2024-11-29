@@ -5,7 +5,20 @@
 
 }
 
+img {
+    max-width: 100%;
+}
+
 header {
     position: sticky;
     top: 0;
+    margin-bottom: 2rem;
+}
+
+.card {
+    min-height: 440px;
+
+    .details {
+        display: none;
+    }
 }
