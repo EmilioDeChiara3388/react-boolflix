@@ -1,19 +1,34 @@
-import { useState } from 'react';
-import GlobalContext, { GlobalProvider } from './components/GlobalContext';
-import SearchBar from './components/SearchBar';
+import { GlobalContextProvider, useGlobalContext } from "./contexts/GlobalContext"
 
-const AppContent = () => {
-  const [movie, setMovie] = useState([])
 
-  return (
-    <>
+function App() {
+
+  function SearchBar() {
+    const { searchMovies, setSearchMovies, handleSearch } = useGlobalContext()
+    return (
+
+      <form className='my-3' onSubmit={handleSearch}>
+        <input type="search"
+          name='searchForm'
+          id='searchForm'
+          placeholder='Inserisci Film'
+          value={searchMovies}
+          onChange={e => setSearchMovies(e.target.value)} />
+        <button type='submit'>Cerca</button>
+      </form >
+
+    )
+  }
+
+  function ListOfResults() {
+    const { movies } = useGlobalContext()
+
+    console.log(movies);
+    return (
       <div className="container">
-
-        <SearchBar setMovie={setMovie} movie={movie} />
-
         <h2>Risultati Ricerca</h2>
-        {movie.length > 0 ? (
-          movie.filter(movie => movie.media_type !== "person").map((movie) => (
+        {movies.length > 0 ? (
+          movies.filter(movie => movie.media_type !== "person").map((movie) => (
             <div className="col" key={movie.id}>
               <ul>
                 <div >
@@ -34,14 +49,28 @@ const AppContent = () => {
           <p>Nessun risultato</p>
         )}
       </div>
+    )
+  }
+
+
+
+  return (
+    <>
+
+      <GlobalContextProvider>
+
+        <SearchBar />
+        <main>
+          <ListOfResults />
+        </main>
+
+      </GlobalContextProvider>
+
+
     </>
   )
 }
 
-const App = () => (
-  <GlobalProvider>
-    <AppContent />
-  </GlobalProvider>
-)
+export default App
 
-export default App;
+

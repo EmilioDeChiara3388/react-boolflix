@@ -1,21 +1,8 @@
-import { useState } from "react"
+/* import { GlobalContextProvider, useGlobalContext } from "../contexts/GlobalContext"
 
-export default function SearchBar({ movie, setMovie }) {
 
-    const [searchMovie, setSearchMovie] = useState("")
-    const [foundMovie, setfoundMovie] = useState([])
-
-    function handleSearch(e) {
-        e.preventDefault()
-
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=02db99b71ab12c53c6d3cba1dbb2dd15&query=${searchMovie}`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data.results);
-                setMovie(data.results)
-            })
-    }
-
+export default function SearchBar() {
+    const { searchMovies, setSearchMovie, handleSearch } = useGlobalContext()
     return (
         <>
             <form className='my-3' onSubmit={handleSearch}>
@@ -23,10 +10,10 @@ export default function SearchBar({ movie, setMovie }) {
                     name='searchForm'
                     id='searchForm'
                     placeholder='Inserisci Film'
-                    value={searchMovie}
+                    value={searchMovies}
                     onChange={e => setSearchMovie(e.target.value)} />
                 <button type='submit'>Cerca</button>
             </form >
         </>
     )
-}
+} */
