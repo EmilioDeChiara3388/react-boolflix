@@ -1,4 +1,6 @@
 import { useGlobalContext } from "../contexts/GlobalContext";
+import Flag from "react-world-flags";
+import FlagForLanguage from "./FlagForLanguage";
 
 export default function ListOfResults() {
 
@@ -15,11 +17,10 @@ export default function ListOfResults() {
                                 <div >
                                     <li className='border border-danger'><p className="m-2"> {movie.title || movie.name} </p>
                                         <p className="m-2"> {movie.original_title || movie.original_name} </p>
-                                        {["it", "es", "fr", "en"].includes(movie.original_language) ? (
-                                            <img src={`../flags/${movie.original_language}.jpg`} alt="" />
-                                        ) : (
-                                            <p className="m-2"> {movie.original_language} </p>
-                                        )}
+                                        <Flag
+                                            code={FlagForLanguage(movie.original_language)}
+                                            style={{ width: "30px", height: "20px" }}
+                                        />
                                         <p className="m-2"> {movie.vote_average} </p>
                                     </li>
                                 </div>
