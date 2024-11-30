@@ -20,11 +20,12 @@ header {
 }
 
 main {
+    min-height: 100vh;
     padding-top: 2rem;
 }
 
 .card {
-    min-height: 450px;
+    min-height: 500px;
 }
 
 .details {
