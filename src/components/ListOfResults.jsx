@@ -10,7 +10,7 @@ export default function ListOfResults() {
     return (
         <>
             <div className="container">
-                <div className="row">
+                <div className="row g-4">
                     <h2 className="mb-4">Risultati Ricerca</h2>
                     {movies.length > 0 ? (
                         movies.filter(movie => movie.media_type !== "person").map((movie) => (
