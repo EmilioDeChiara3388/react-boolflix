@@ -14,21 +14,17 @@ export default function ListOfResults() {
                     <h2 className="mb-4">Risultati Ricerca</h2>
                     {movies.length > 0 ? (
                         movies.filter(movie => movie.media_type !== "person").map((movie) => (
-                            <div className="col-4 mb-4" key={movie.id}>
-
-                                <div className="card p-3 text-light" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w300${movie.poster_path}` }} >
+                            <div className="col-3 mb-4" key={movie.id}>
+                                <div className="card p-3" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${movie.poster_path}`, objectFit: "fill", backgroundPosition: "center" }} >
                                     <div className="details">
-                                        <p className="m-2"> {movie.title || movie.name} </p>
-                                        <p className="m-2"> {movie.original_title || movie.original_name} </p>
-                                        <div className="p-2">
-                                            <Flag
-                                                code={FlagForLanguage(movie.original_language)}
-                                                style={{ width: "30px", height: "20px" }}
-                                            />
-                                        </div>
-                                        <div className="p-2">
-                                            <VoteInStars movieId={movie.id} />
-                                        </div>
+                                        <p className="m-2 fs-5 fw-bold"> {movie.title || movie.name} </p>
+                                        <p className="m-2 fs-5 fw-bold"> {movie.original_title || movie.original_name} </p>
+                                        <Flag
+                                            code={FlagForLanguage(movie.original_language)}
+                                            style={{ width: "30px", height: "20px" }}
+                                        />
+                                        <VoteInStars movieId={movie.id} />
+                                        <p className="m-2"> {movie.overview} </p>
                                     </div>
                                 </div>
 
@@ -40,6 +36,5 @@ export default function ListOfResults() {
                 </div>
             </div>
         </>
-
     )
 }

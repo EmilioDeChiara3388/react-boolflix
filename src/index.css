@@ -12,13 +12,29 @@ img {
 header {
     position: sticky;
     top: 0;
-    margin-bottom: 2rem;
+    z-index: 1;
+}
+
+main {
+    padding-top: 2rem;
 }
 
 .card {
-    min-height: 440px;
+    min-height: 450px;
+}
 
-    .details {
-        display: none;
-    }
+.details {
+    display: none;
+    top: 200px;
+    text-align: center;
+    color: white;
+}
+
+.card:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    background-blend-mode: darken;
+}
+
+.card:hover .details {
+    display: inline-block;
 }
