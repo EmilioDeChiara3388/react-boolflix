@@ -9,6 +9,10 @@ img {
     max-width: 100%;
 }
 
+body {
+    background-color: darkgray;
+}
+
 header {
     position: sticky;
     top: 0;

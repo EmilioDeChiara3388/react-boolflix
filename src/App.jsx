@@ -1,6 +1,7 @@
 import { GlobalContextProvider, useGlobalContext } from "./contexts/GlobalContext"
 import AppHeader from "./components/AppHeader";
 import ListOfResults from "./components/ListOfResults";
+import AppFooter from "./components/AppFooter";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         <main>
           <ListOfResults />
         </main>
+        <AppFooter />
 
       </GlobalContextProvider>
 

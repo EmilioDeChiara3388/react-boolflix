@@ -15,7 +15,7 @@ export default function ListOfResults() {
                     {movies.length > 0 ? (
                         movies.filter(movie => movie.media_type !== "person").map((movie) => (
                             <div className="col-3 mb-4" key={movie.id}>
-                                <div className="card p-3" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${movie.poster_path}`, objectFit: "fill", backgroundPosition: "center" }} >
+                                <div className="card p-3 border-danger" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${movie.poster_path}`, objectFit: "fill", backgroundPosition: "center" }} >
                                     <div className="details">
                                         {movie.title === movie.original_title ? (<p className="m-2 fs-5 fw-bold"> {movie.title || movie.name} </p>) : (
                                             <>
