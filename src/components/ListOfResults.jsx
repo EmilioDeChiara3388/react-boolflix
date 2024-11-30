@@ -17,8 +17,12 @@ export default function ListOfResults() {
                             <div className="col-3 mb-4" key={movie.id}>
                                 <div className="card p-3" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/w342${movie.poster_path}`, objectFit: "fill", backgroundPosition: "center" }} >
                                     <div className="details">
-                                        <p className="m-2 fs-5 fw-bold"> {movie.title || movie.name} </p>
-                                        <p className="m-2 fs-5 fw-bold"> {movie.original_title || movie.original_name} </p>
+                                        {movie.title === movie.original_title ? (<p className="m-2 fs-5 fw-bold"> {movie.title || movie.name} </p>) : (
+                                            <>
+                                                <p className="m-2 fs-5 fw-bold"> {movie.title || movie.name} </p>
+                                                <p className="m-2 fs-5 fw-bold"> {movie.original_title || movie.original_name} </p>
+                                            </>
+                                        )}
                                         <Flag
                                             code={FlagForLanguage(movie.original_language)}
                                             style={{ width: "30px", height: "20px" }}
@@ -27,7 +31,6 @@ export default function ListOfResults() {
                                         <p className="m-2"> {movie.overview} </p>
                                     </div>
                                 </div>
-
                             </div>
                         ))
                     ) : (

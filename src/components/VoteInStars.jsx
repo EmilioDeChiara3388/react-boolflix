@@ -16,6 +16,7 @@ export default function VoteInStars({ movieId }) {
                     ? <i key={i} className="bi bi-star-fill text-warning"></i>
                     : <i key={i} className="bi bi-star"></i>
             );
+
         }
 
         return stars;
